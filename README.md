@@ -17,7 +17,7 @@ _Untuk perintah yang dibungkus < > maka perintah tersebut diganti sesuai instruk
   ```
 - Pindah ke branch NIM kalian serta gunakan branch tersebut untuk menyimpan kode dari tugas praktikum yang dikerjakan
   ```
-  git checkout <NIM>
+  git checkout -b <NIM>
   ```
 - Buat folder baru berdasarkan NIM kalian
   ```
