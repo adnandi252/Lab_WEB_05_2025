@@ -1,0 +1,165 @@
+/* ==================== Style Umum ==================== */
+body {
+    background: linear-gradient(to bottom, #ffe6f2, #ffffff);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ==================== Header & Navigasi ==================== */
+header {
+    background: #4a6fa5;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; 
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== Konten Utama ==================== */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    color: #166088;
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* ==================== Tabel ==================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    background-color: #e6f2ff;  /* Biru langit */
+    color: #000;                /* Teks hitam supaya mudah dibaca */
+}
+
+/* ==================== Formulir ==================== */
+form input,
+form textarea {
+    width: auto;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background: #166088;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #4a6fa5;
+}
+
+/* ==================== Footer ==================== */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer .social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer .social a:hover {
+    color: #4cb5f5;
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hero img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;   /* Biar jadi lingkaran */
+    object-fit: cover;    /* Biar proporsional */
+    border: 3px solid #4a6fa5;
+    margin-bottom: 10px;
+}
+
+/* ==================== Quick Stats ==================== */
+.stats table {
+    margin-top: 15px;
+}
+
+/* ==================== Riwayat Pendidikan ==================== */
+.education dl {
+    margin: 0;
+    padding: 0;
+}
+
+.edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.edu-item dt,
+.edu-item dd {
+    margin: 0;
+    padding: 0;
+    color: #000;           /* Semua teks hitam */
+    font-weight: normal;   /* Tidak ada bold */
+}
+
+.edu-item dd {
+    font-style: italic;     /* Opsional: bisa dihapus kalau tidak mau miring */
+}
+
+.education h2 {
+    color: #166088;
+    font-weight: bold;      /* Judul tetap tebal */
+}
