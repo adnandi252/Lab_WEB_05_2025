@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descendants of the Sun 2016</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-yellow-600 to-orange-500 fixed w-full z-20 shadow-lg">
+  <div class="flex justify-between items-center px-6 py-4">
+    <h1 class="text-2xl font-bold tracking-wide">Descendants of the Sun</h1>
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-6 font-semibold text-sm sm:text-base">
+      <li><a href="#hero" class="hover:text-yellow-200 transition">Beranda</a></li>
+      <li><a href="#about" class="hover:text-yellow-200 transition">Tentang</a></li>
+      <li><a href="#cast" class="hover:text-yellow-200 transition">Pemeran</a></li>
+      <li><a href="#testimoni" class="hover:text-yellow-200 transition">Testimoni</a></li>
+      <li><a href="#contact" class="hover:text-yellow-200 transition">Kontak</a></li>
+    </ul>
+    <!-- Tombol Mobile -->
+    <button class="md:hidden focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <!-- Menu Mobile -->
+  <ul id="mobile-menu" class="flex flex-col space-y-2 px-6 pb-4 md:hidden font-semibold bg-yellow-700">
+    <li><a href="#hero" class="block hover:text-yellow-200">Beranda</a></li>
+    <li><a href="#about" class="block hover:text-yellow-200">Tentang</a></li>
+    <li><a href="#cast" class="block hover:text-yellow-200">Pemeran</a></li>
+    <li><a href="#testimoni" class="block hover:text-yellow-200">Testimoni</a></li>
+    <li><a href="#contact" class="block hover:text-yellow-200">Kontak</a></li>
+  </ul>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="min-h-screen flex items-center justify-center text-center px-6 bg-cover bg-center relative" 
+  style="background-image: url('asset/background.jpg'); background-size: cover; background-position: center;">
+  <div class="absolute bg-black/60"></div>
+  <div class="relative z-10">
+    <h2 class="text-5xl md:text-6xl font-extrabold text-yellow-300 mb-6">Descendants of the Sun (2016)</h2>
+    <p class="text-xl md:text-2xl mb-8 text-gray-200">Drama Korea Romantis Militer Paling Ikonik</p>
+    <a href="#about" class="bg-yellow-500 text-white px-6 py-3 rounded-full hover:bg-yellow-400 transition">Pelajari Lebih Lanjut</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="min-h-screen flex items-center px-6 bg-gray-800 py-12">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+    <!-- Gambar Full Height -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+      <img src="asset/dots.jpg" alt="Descendants of the Sun" class="w-full h-full object-cover rounded-xl shadow-2xl">
+    </div>
+    <!-- Teks -->
+    <div class="flex flex-col justify-center">
+      <h3 class="text-4xl font-bold text-yellow-300 mb-6">Tentang Drama</h3>
+      <p class="text-gray-300 text-lg leading-relaxed mb-6">
+        <em>Descendants of the Sun</em> adalah drama Korea populer tahun 2016 yang menceritakan kisah cinta 
+        antara seorang tentara pasukan khusus, Kapten Yoo Si-jin, dan seorang dokter, Kang Mo-yeon.
+        Drama ini memadukan aksi, romantis, dan kemanusiaan dengan latar perang dan bencana. 
+        DOTS menceritakan kisah cinta antara Kapten Yoo Si-jin, seorang tentara pasukan khusus, dan Dokter Kang Mo-yeon, 
+        seorang dokter bedah, yang berjuang membangun hubungan di tengah misi kemanusiaan dan situasi konflik di negara asing bernama Urk.
+      </p>
+      <a href="#cast" class="bg-yellow-500 text-white px-6 py-3 rounded-full hover:bg-yellow-400 transition text-center w-1/2 lg:w-1/3">Lihat Pemeran</a>
+    </div>
+  </div>
+</section>
+
+<!-- Cast -->
+<section id="cast" class="min-h-screen flex items-center px-6 bg-gradient-to-b from-gray-800 to-gray-900 py-12">
+  <div class="container mx-auto text-center">
+    <h3 class="text-4xl font-bold text-yellow-300 mb-6">Pemeran Utama</h3>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <img src="asset/song jongki.jpg" alt="Song Joong-ki" class="rounded-lg mb-4 w-full h-64 object-cover">
+        <h4 class="text-xl font-bold">Song Joong-ki</h4>
+        <p class="text-gray-300">Sebagai Yoo Si-jin</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <img src="asset/song-hye-kyo.jpg" alt="Song Hye-kyo" class="rounded-lg mb-4 w-full h-64 object-cover">
+        <h4 class="text-xl font-bold">Song Hye-kyo</h4>
+        <p class="text-gray-300">Sebagai Kang Mo-yeon</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <img src="asset/jin-goo.jpg" alt="Jin Goo" class="rounded-lg mb-4 w-full h-64 object-cover">
+        <h4 class="text-xl font-bold">Jin Goo</h4>
+        <p class="text-gray-300">Sebagai Seo Dae-young</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <img src="asset/kim-ji-won.jpg" alt="Kim Ji-won" class="rounded-lg mb-4 w-full h-64 object-cover">
+        <h4 class="text-xl font-bold">Kim Ji-won</h4>
+        <p class="text-gray-300">Sebagai Yoon Myung-joo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimoni -->
+<section id="testimoni" class="min-h-screen flex items-center px-6 bg-gray-800 py-12">
+  <div class="container mx-auto">
+    <h3 class="text-4xl font-bold text-yellow-300 text-center mb-8">Testimoni Fans</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <h4 class="text-lg font-bold text-yellow-300 mb-2">Shabrina, Soppeng</h4>
+        <p class="text-gray-300">Drama ini bikin baper banget! Chemistry Song Joong-ki & Song Hye-kyo luar biasa.</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <h4 class="text-lg font-bold text-yellow-300 mb-2">Nia, Papua</h4>
+        <p class="text-gray-300">OST DOTS 2016 sampai sekarang masih jadi playlist favorit saya.</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <h4 class="text-lg font-bold text-yellow-300 mb-2">Naila, Kalimantan</h4>
+        <p class="text-gray-300">DOTS sekarang masih jadi drakor favorit saya (tahta tertinggi)</p>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-yellow-400 transition">
+        <h4 class="text-lg font-bold text-yellow-300 mb-2">Erin, Bone</h4>
+        <p class="text-gray-300">Saya sangat suka dengan alur cerita DOTS yang sangat bagus serta pengambilan kamera yang sangat bagus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section id="contact" class="min-h-screen flex items-center px-6 bg-gray-900 py-12">
+  <div class="container mx-auto text-center">
+    <h3 class="text-4xl font-bold text-yellow-300 mb-8">Kontak Kami</h3>
+    <p class="text-gray-300 mb-8">Gabung komunitas pecinta DOTS atau hubungi kami untuk info lainnya.</p>
+    <form class="max-w-lg mx-auto space-y-4" method="POST" action="#">
+      <input name="nama" type="text" placeholder="Nama Lengkap" required class="w-full border border-gray-500 bg-transparent text-white p-3 rounded focus:border-yellow-400 focus:outline-none">
+      <input name="email" type="email" placeholder="Email" required class="w-full border border-gray-500 bg-transparent text-white p-3 rounded focus:border-yellow-400 focus:outline-none">
+      <textarea name="pesan" placeholder="Pesan Anda" rows="4" required class="w-full border border-gray-500 bg-transparent text-white p-3 rounded focus:border-yellow-400 focus:outline-none"></textarea>
+      <button type="submit" class="bg-yellow-500 text-white px-6 py-3 rounded-full hover:bg-yellow-400 transition">Kirim Pesan</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-yellow-600 to-orange-500 text-white py-6 px-4 text-center">
+  <p>&copy; 2025 Descendants of the Sun Fanpage. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
