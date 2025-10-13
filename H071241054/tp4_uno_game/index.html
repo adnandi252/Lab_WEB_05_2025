@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uno Arena</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-800">
+
+  <!-- WELCOME PAGE -->
+  <div class="flex flex-col items-center justify-center min-h-screen space-y-6">
+    <h1 class="text-white text-3xl text-center font-extrabold p-12">
+      Welcome to the Uno Arena!
+    </h1>
+    <img src="assets/uno!.png" alt="Uno!" class="w-64 h-auto rounded shadow-lg animate-bounce">
+
+    <button id="mainBtn" class="bg-white text-black font-bold rounded px-8 py-2 hover:bg-gray-200 transition">
+      Main Sekarang!
+    </button>
+
+    <!-- Modal Pilih Mode -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-gray-900 text-white rounded-lg p-8 w-80 flex flex-col space-y-4">
+        <h2 class="text-xl font-bold text-center">Pilih Mode Permainan</h2>
+        <button id="botBtn" class="bg-blue-600 hover:bg-blue-700 rounded px-4 py-2 transition" >
+          Main dengan Bot
+        </button>
+        <button id="friendBtn" class="bg-green-600 hover:bg-green-700 rounded px-4 py-2 transition" >
+          Main dengan Teman
+        </button>
+        <button class="text-red-400 hover:text-red-500 mt-2" id="closeBtn">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
