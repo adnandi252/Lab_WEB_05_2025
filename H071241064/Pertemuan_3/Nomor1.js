@@ -19,4 +19,4 @@ function menghitung(mulai, akhir) {
   console.log("Daftar bilangan genap:", list);
 }
 
-menghitung(1, 10);
+menghitung(1, "l");
