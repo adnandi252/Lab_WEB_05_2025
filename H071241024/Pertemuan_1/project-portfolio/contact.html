@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ariel Mufaddhal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="logo">Ariel Mufaddhal</span>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2>Informasi Kontak</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td>arielmufaddhal1@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Nomor Telepon</td>
+                            <td>085211763612</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn</td>
+                            <td><a href="https://www.linkedin.com/in/ariel-mufaddhal-36322b33b/" target="_blank">Ariel Mufaddhal</a></td>
+                        </tr>
+                        <tr>
+                            <td>Instagram</td>
+                            <td><a href="https://www.instagram.com/arielmufaddhal/?next=%2F" target="_blank">arielmufaddhal</a></td>
+                        </tr>
+                        <tr>
+                            <td>GitHub</td>
+                            <td><a href="https://github.com/arielmufaddhal" target="_blank">arielmufaddhal</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Kirim Pesan</h2>
+                <form action="#">
+                    <div class="form-group">
+                        <label for="nama">Nama:</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon:</label>
+                        <input type="tel" id="telepon" name="telepon" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipe Pesan:</label><br>
+                        <input type="radio" id="pertanyaan" name="tipe_pesan" value="pertanyaan" required>
+                        <label for="pertanyaan">Pertanyaan</label><br>
+                        <input type="radio" id="kritik" name="tipe_pesan" value="kritik">
+                        <label for="kritik">Kritik</label><br>
+                        <input type="radio" id="saran" name="tipe_pesan" value="saran">
+                        <label for="saran">Saran</label><br>
+                        <input type="radio" id="kerjasama" name="tipe_pesan" value="kerjasama">
+                        <label for="kerjasama">Kerja Sama</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan Detail:</label>
+                        <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="persetujuan" name="persetujuan" required>
+                        <label for="persetujuan">Saya menyetujui data saya disimpan.</label>
+                    </div>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Ariel Mufaddhal. Hak Cipta Dilindungi.</p>
+            <div>
+                <a href="https://www.linkedin.com/in/ariel-mufaddhal-36322b33b/" target="_blank">LinkedIn</a> | 
+                <a href="https://www.instagram.com/arielmufaddhal/?next=%2F" target="_blank">Instagram</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
