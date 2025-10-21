@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">MGS</div><br>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="contact-info">
+            <h2>Informasi Kontak</h2>
+            <table class="stats-table" border="1">
+                <tr>
+                    <th>Email</th>
+                    <td>marchegatrianii@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>Nomor Telepon</th>
+                    <td>08123456789</td>
+                </tr>
+                <tr>
+                    <th>LinkedIn</th>
+                    <td><a href="https://www.linkedin.com/in/marche-gatriani-sude-5169b1333/" target="_blank">linkedin.com/in/marchegatrianisude</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Instagram</th>
+                    <td><a href="https://instagram.com/marchegatriani_" target="_blank">@marchegatriani_</a></td>
+                </tr>
+                <tr>
+                    <th>GitHub</th>
+                    <td><a href="https://github.com/Marchegatriani" target="_blank">github.com/Marchegatriani</a></td>
+                </tr>
+            </table><br>
+        </section>
+        <section class="contact-form">
+            <h2>Form Kontak</h2>
+            <form>
+                <label for="nama">Nama:</label><br>
+                <input type="text" id="nama" name="nama" required><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="telepon">Nomor Telepon:</label><br>
+                <input type="tel" id="telepon" name="telepon" required><br><br>
+
+                <label>Tipe Pesan:</label><br>
+                <input type="radio" id="pertanyaan" name="tipe" value="Pertanyaan" required>
+                <label for="pertanyaan">Pertanyaan</label>
+                <input type="radio" id="kritik" name="tipe" value="Kritik">
+                <label for="kritik">Kritik</label>
+                <input type="radio" id="saran" name="tipe" value="Saran">
+                <label for="saran">Saran</label>
+                <input type="radio" id="kerjasama" name="tipe" value="Kerjasama">
+                <label for="kerjasama">Kerjasama</label><br><br>
+
+                <label for="pesan">Pesan Detail:</label><br>
+                <textarea id="pesan" name="pesan" rows="4" required></textarea><br>
+
+                <input type="checkbox" id="persetujuan" name="persetujuan" required>
+                <label for="persetujuan">Saya menyetujui pengiriman data ini</label><br>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <a href="https://www.linkedin.com/in/marche-gatriani-sude-5169b1333/" target="_blank">LinkedIn</a>
+        <a href="https://instagram.com/marchegatriani_" target="_blank">Instagram</a></td>
+        <a href="https://github.com/Marchegatriani" target="_blank">Github</a><br>
+
+        &copy; 2025 Marche Gatriani Sude
+    </footer>
+</body>
+</html>
