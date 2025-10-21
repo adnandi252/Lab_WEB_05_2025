@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - [Nama Anda]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Iyad</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-info">
+            <h2>Contact Information</h2>
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <td>iyadhilmy444@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>Nomor Telepon</th>
+                    <td>123456789</td>
+                </tr>
+                <tr>
+                    <th>LinkedIn</th>
+                    <td><a href="https://www.linkedin.com/in/hilmy-affayyad-489a14362/">Hilmy Affayyad</a></td>
+                </tr>
+                <tr>
+                    <th>Instagram</th>
+                    <td><a href="https://www.instagram.com/iyadafyd/">@iyadafyd</a></td>
+                </tr>
+                <tr>
+                    <th>GitHub</th>
+                    <td><a href="https://github.com/Yadd26">Yadd26</a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact-form">
+            <h2>Contact Form</h2>
+            <form action="#" method="POST">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Nomor Telepon:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <p>Tipe Pesan:</p>
+                    <div class="radio-group">
+                    <input type="radio" id="question" name="message-type" value="pertanyaan" required>
+                    <label for="question">Pertanyaan</label>
+
+                    <input type="radio" id="feedback" name="message-type" value="masukan" c>
+                    <label for="feedback">Masukan</label>
+
+                    <input type="radio" id="criticism" name="message-type" value="kritik">
+                    <label for="criticism">Kritik</label>
+
+                    <input type="radio" id="suggestion" name="message-type" value="saran">
+                    <label for="suggestion">Saran</label>
+
+                    <input type="radio" id="collaboration" name="message-type" value="kerjasama">
+                    <label for="collaboration">Kerjasama</label>
+
+                    <br>
+
+                    <label for="message">Pesan Detail:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <br>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <label for="agreement">Saya menyetujui data saya disimpan.</label>
+                    </div>
+
+                    <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hilmy Affayyad Akbar. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/hilmy-affayyad-489a14362/">LinkedIn</a>
+            <a href="https://www.instagram.com/iyadafyd/">Instagram</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
