@@ -13,7 +13,7 @@ _Untuk perintah yang dibungkus < > maka perintah tersebut diganti sesuai instruk
   ```
 - Pindah ke repositori hasil clone dengan perintah berikut
   ```
-  cd Lab-WEB-11-2025
+  cd Lab-WEB-05-2025
   ```
 - Pindah ke branch NIM kalian serta gunakan branch tersebut untuk menyimpan kode dari tugas praktikum yang dikerjakan
   ```
