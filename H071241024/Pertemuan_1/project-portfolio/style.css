@@ -1,0 +1,289 @@
+/* --- Definisi Variabel Warna --- */
+/* Variabel CSS digunakan untuk menyimpan nilai warna. Ini mempermudah
+   mengganti skema warna di satu tempat tanpa harus mengubahnya di
+   seluruh kode. */
+:root {
+    --primary-blue: #007bff;
+    --secondary-blue: #0056b3;
+    --accent-blue: #4ac6ff; /* Biru cerah untuk highlight */
+    --light-blue: #87ceeb;  /* Biru muda untuk sub-heading */
+    --dark-bg: #121212;     /* Warna latar belakang sangat gelap */
+    --light-text: #f0f0f0;  /* Warna teks terang */
+    --subtle-text: #aaa;    /* Warna teks abu-abu terang */
+    --card-bg: rgba(40, 40, 40, 0.8); /* Background kartu semi-transparan */
+    --border-color: rgba(255, 255, 255, 0.15); /* Warna border tipis */
+}
+
+/* --- FONT & TEMA UMUM --- */
+body {
+    /* Menggunakan font 'Aptos' jika tersedia, jika tidak, akan menggunakan
+       font fallback seperti Calibri atau sans-serif. */
+    font-family: 'Aptos', Calibri, 'Segoe UI', sans-serif;
+    line-height: 1.6; /* Mengatur spasi baris untuk keterbacaan yang lebih baik */
+    margin: 0; /* Menghapus margin default browser */
+    padding: 0; /* Menghapus padding default browser */
+    /* Membuat gradien (peralihan warna) dari biru ke hitam sebagai latar belakang */
+    background: linear-gradient(to bottom right, var(--primary-blue), var(--dark-bg));
+    background-attachment: fixed; /* Memastikan gradasi tetap di tempat saat halaman digulir (scroll) */
+    color: var(--light-text); /* Mengatur warna teks utama */
+    min-height: 100vh; /* Memastikan body mengisi seluruh tinggi viewport */
+}
+
+/* Container utama untuk membatasi lebar konten di tengah halaman */
+.container {
+    max-width: 960px; /* Lebar maksimal konten */
+    margin: auto; /* Memposisikan container di tengah horizontal */
+    overflow: hidden; /* Mencegah konten meluap (overflow) jika melebihi batas */
+    padding: 0 20px; /* Menambahkan spasi di sisi kiri dan kanan */
+    background-color: rgba(18, 18, 18, 0.7); /* Background semi-transparan */
+    backdrop-filter: blur(10px); /* Efek blur pada background di belakang container (opsional) */
+    border-radius: 10px; /* Membuat sudut-sudut container menjadi melengkung */
+    margin-top: 2rem; /* Jarak dari atas */
+    margin-bottom: 2rem; /* Jarak dari bawah */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Menambahkan efek bayangan */
+}
+
+/* --- HEADER & NAVIGASI --- */
+header {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-blue); /* Garis bawah biru */
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    justify-content: space-between; /* Memisahkan logo ke kiri dan navigasi ke kanan */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    flex-wrap: wrap; /* Memungkinkan item untuk pindah baris saat layar menyempit */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+header nav ul {
+    list-style: none; /* Menghilangkan bullet point pada list */
+    padding: 0;
+    display: flex; /* Mengatur list item secara horizontal */
+    justify-content: flex-end;
+    margin: 0;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin-left: 20px; /* Jarak antar item navigasi */
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transisi halus saat warna berubah */
+}
+
+header nav a:hover {
+    color: var(--accent-blue); /* Mengubah warna link saat kursor di atasnya */
+}
+
+/* --- FOTO PROFIL (khusus di Index.html) --- */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    border: 4px solid var(--accent-blue); /* Bingkai biru */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Efek bayangan */
+}
+
+/* --- GAYA KONTEN UTAMA --- */
+main {
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color); /* Garis pembatas antar seksi */
+}
+
+section:last-of-type {
+    border-bottom: none; /* Menghilangkan garis pada seksi terakhir */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Jarak antar huruf */
+    text-align: center;
+}
+
+h3 {
+    color: var(--light-blue);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* --- Tata letak konten Hero di halaman Home --- */
+.hero {
+    display: flex;
+    flex-direction: column; /* Mengatur item dari atas ke bawah */
+    align-items: center; /* Menyelaraskan item di tengah horizontal */
+    text-align: center;
+    padding-top: 20px;
+}
+
+.hero .hero-content {
+    margin-top: 20px;
+}
+
+/* --- Tabel --- */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menggabungkan border sel tabel */
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--secondary-blue);
+    color: #fff;
+}
+
+td {
+    background-color: var(--card-bg);
+}
+
+/* --- List (dl, ul, ol) --- */
+dl, ul, ol {
+    margin-left: 20px;
+}
+
+dt {
+    font-weight: bold;
+    color: var(--light-blue);
+    margin-top: 10px;
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+/* --- Form Kontak --- */
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block; /* Membuat label berada di baris baru */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--light-blue);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--light-text);
+    box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar elemen */
+}
+
+form input[type="radio"] {
+    margin-right: 5px;
+}
+
+form button[type="submit"] {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat di atas tombol */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 2px solid var(--primary-blue);
+}
+
+footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVITAS --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Mengubah tata letak header menjadi vertikal */
+        padding: 15px 0;
+    }
+    header .logo {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    header nav ul {
+        justify-content: center;
+        margin-right: 0;
+    }
+    header nav ul li {
+        margin: 0 8px;
+    }
+
+    .container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
