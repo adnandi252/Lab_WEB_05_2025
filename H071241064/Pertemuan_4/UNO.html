@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO GAME</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            width: 80px;
+            height: 120px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .uno-pulse {
+            animation: uno-pulse 0.5s infinite;
+        }
+        @keyframes uno-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-red-700 min-h-screen flex items-center justify-center p-4">
+    <div class="fixed top-4 left-4 bg-white bg-opacity-20 px-6 py-3 rounded-lg">
+        <p class="text-yellow-50 text-sm">Saldo Anda</p>
+        <p id="playerBalance" class="text-3xl font-bold text-white">$5000</p>
+    </div>
+
+    <button id="restartButton" onclick="confirmRestart()" style="display:none;" 
+        class="fixed top-4 right-4 bg-white hover:bg-gray-300 w-14 h-14 rounded-full hover:scale-95 transition flex items-center justify-center">
+        <img src="assets/icon_ulang.png" alt="Restart" class="w-8 h-8">
+    </button>
+
+    <div class="max-w-6xl w-full">
+        <div class="text-center mb-4">
+            <h1 class="text-5xl font-bold text-white mb-2">UNO</h1>
+            <div class="flex items-center justify-center gap-4">
+                <div id="currentBetDisplay" class="text-white text-xl font-bold"></div>
+                <p class="text-white text-lg" id="gameStatus">Tekan "Mulai Game" untuk bermain</p>
+            </div>
+        </div>
+
+        <div class="bg-slate-50 bg-opacity-35 rounded-3xl p-6 shadow-2xl">
+            <div class="mb-4">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-white text-xl font-bold gap-2">
+                            <img src="assets/komputer.png" alt="bot" class="w-6 h-6 inline-block">
+                            Komputer
+                        </h2>
+                        <span id="aiUnoStatus" class="hidden bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">UNO!</span>
+                    </div>
+                    <span class="text-white text-lg" id="aiCardCount">0 kartu</span>
+                </div>
+                <div class="flex gap-2 flex-wrap justify-center" id="aiCards"></div>
+            </div>
+
+            <div class="flex items-center justify-center gap-6 my-6">
+                <div class="text-center">
+                    <p class="text-white mb-2 font-bold text-sm">Tumpukan Kartu</p>
+                    <div class="card cursor-pointer hover:scale-110" id="drawPile" onclick="drawCard()">
+                        <img src="assets/card_back.png" alt="Card Back">
+                    </div>
+                    <p class="text-slate-100 mt-2 text-sm" id="deckCount">0 kartu</p>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-white mb-2 font-bold text-sm">Kartu Terakhir</p>
+                    <div class="card" id="discardPile"></div>
+                    <p class="text-slate-100 mt-2 text-sm" id="currentColor"></p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 my-4">
+                <button id="passButton" onclick="passTurn()" 
+                    class="hidden bg-black hover:bg-black/40 text-white font-bold py-2 px-5 rounded-lg text-base shadow-lg transform hover:scale-105 transition">
+                    Lewati Giliran
+                </button>
+                
+                <button id="unoButton" onclick="callUno()" 
+                    class="hidden bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-5 rounded-lg text-lg shadow-lg transform hover:scale-105 transition uno-pulse">
+                    <img src="assets/uno_icon.png" alt="UNO" class="w-6 h-6 inline-block mr-2">
+                    UNO!
+                </button>
+                
+                <button id="catchUnoButton" onclick="catchUno()" 
+                    class=" hidden bg-white hover:bg-slate-500 text-black font-bold py-2 px-5 rounded-lg text-base shadow-lg transform hover:scale-105 transition">
+                    <img src="assets/catch_uno_icon.png" alt="Catch UNO" class="w-5 h-5 inline-block mr-2">
+                    Panggil UNO!
+                </button>
+            </div>
+
+            <div class="mt-4">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-white text-xl font-bold">
+                            <img src="assets/player.png" alt="player" class="w-6 h-6 inline-block">
+                            Anda
+                        </h2>
+                        <span id="playerUnoStatus" class="hidden bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">UNO!</span>
+                    </div>
+                    <span class="text-slate-100 text-lg" id="playerCardCount">0 kartu</span>
+                </div>
+                <div class="flex gap-2 flex-wrap justify-center" id="playerCards"></div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button id="startButton" onclick="startGame()" class="bg-white hover:bg-slate-200 text-gray-900 font-bold py-3 px-8 rounded-lg text-xl shadow-lg transform hover:scale-105 transition mx-auto">
+                Mulai Game Baru
+            </button>
+        </div>
+    </div>        
+
+    <div id="colorModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">Pilih Warna</h3>
+            <div class="flex gap-4">
+                <button onclick="selectColor('red')" class="w-20 h-20 rounded-full bg-red-500 hover:scale-110 transition"></button>
+                <button onclick="selectColor('blue')" class="w-20 h-20 rounded-full bg-blue-500 hover:scale-110 transition"></button>
+                <button onclick="selectColor('green')" class="w-20 h-20 rounded-full bg-green-500 hover:scale-110 transition"></button>
+                <button onclick="selectColor('yellow')" class="w-20 h-20 rounded-full bg-yellow-500 hover:scale-110 transition"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="betModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 text-center max-w-md">
+            <h3 class="text-3xl font-bold mb-2 text-gray-800">Pasang Taruhan</h3>
+            <p class="text-gray-600 mb-4">Saldo Anda: <span class="font-bold text-black">$<span id="modalBalance">5000</span></span></p>
+            <p class="text-sm text-gray-500 mb-6">Minimal taruhan: $100</p>
+            
+            <div class="mb-6">
+                <label class="block text-gray-700 font-bold mb-2">Jumlah Taruhan</label>
+                <div class="flex items-center gap-2">
+                    <input
+                        type="number" 
+                        id="betInput" 
+                        min="100" 
+                        step="100" 
+                        placeholder="100"
+                        class="flex-1 px-4 py-3 text-2xl font-bold border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 mb-7"
+                    >
+                </div>
+            </div>
+            
+            <button onclick="placeBet()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-xl shadow-lg transform hover:scale-105 transition">
+                Mulai Permainan
+            </button>
+        </div>
+    </div>
+
+    <div id="restartModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 text-center max-w-md">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Mulai Ulang Permainan?</h3>
+            <p class="text-gray-600 mb-6">Apakah Anda yakin ingin mengulang permainan? Progres saat ini akan hilang dan taruhan akan dikembalikan.</p>
+            <div class="flex gap-4 justify-center">
+                <button onclick="cancelRestart()" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition">
+                    Batal
+                </button>
+                <button onclick="executeRestart()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition">
+                    Ya, Mulai Ulang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameOverModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 text-center max-w-md">
+            <h3 id="gameOverTitle" class="text-4xl font-bold mb-4 text-gray-800">GAME OVER</h3>
+            <p id="gameOverMessage" class="text-gray-600 mb-4 text-lg"></p>
+            <div class="bg-gray-100 rounded-lg p-4 mb-6">
+                <p class="text-gray-600 text-sm mb-2">Saldo Final Anda</p>
+                <p id="finalBalance" class="text-4xl font-bold text-green-600">$0</p>
+            </div>
+            <button onclick="resetGameToStart()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                Mulai Ulang dengan Saldo Awal
+            </button>
+        </div>
+    </div>
+
+    <script src="uno-game.js"></script>
+</body>
+</html>
