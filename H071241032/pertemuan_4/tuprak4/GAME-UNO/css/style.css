@@ -1,0 +1,246 @@
+/* --- Pengaturan Dasar --- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0c4b33; /* Warna hijau meja kasino */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- Tata Letak Utama Permainan --- */
+#game-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.player-area {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#bot-area h3, #player-area h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.hand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-height: 120px; /* Tinggi minimum area kartu */
+}
+
+/* --- Area Tengah (Meja) --- */
+#table-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Wadah untuk Dek dan Teksnya */
+.deck-container {
+    display: flex;
+    flex-direction: column; /* Menyusun elemen secara vertikal */
+    align-items: center; /* Menengahkan secara horizontal */
+    gap: 5px; /* Memberi sedikit jarak antara kartu dan teks */
+}
+
+/* Teks Counter di bawah Dek */
+#deck-counter {
+    margin: 0;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.card-pile {
+    width: 80px;
+    height: 120px;
+    border: 2px dashed #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+}
+
+#deck {
+    background-image: url('../assets/card_back.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid white;
+    border-radius: 8px;
+    /* Hapus semua properti teks dari sini */
+}
+
+#game-info {
+    text-align: center;
+}
+
+#uno-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #ff4136; /* Merah */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* --- Gaya Kartu (Sementara) --- */
+.card {
+    width: 80px;
+    height: 120px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* Kartu Bot yang tertutup */
+.card.facedown {
+    background-image: url('../assets/card_back.png'); /* Pastikan path ini benar */
+    background-color: #222;
+}
+
+/* --- Overlay (Taruhan & Game Over) --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* Defaultnya tersembunyi */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.overlay.active {
+    display: flex; /* Class 'active' untuk menampilkan overlay */
+}
+
+.overlay-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #fff;
+}
+
+.overlay-content h2 {
+    margin-top: 0;
+}
+
+.overlay-content input {
+    padding: 10px;
+    width: 150px;
+    margin: 10px 0;
+}
+
+.overlay-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* --- Gaya untuk Pop-up Pemilih Warna --- */
+#color-choices {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.color-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.color-btn[data-color="red"] { background-color: #ff4136; }
+.color-btn[data-color="green"] { background-color: #2ecc40; }
+.color-btn[data-color="blue"] { background-color: #0074d9; }
+.color-btn[data-color="yellow"] { background-color: #ffdc00; }
+
+/* --- Kelas Bantuan --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Aturan Responsif untuk Layar Mobile --- */
+@media (max-width: 768px) {
+    #game-container {
+        padding: 10px;
+    }
+
+    .hand {
+        /* Memungkinkan kartu tumpang tindih agar muat di layar kecil */
+        gap: -30px; 
+    }
+
+    .card {
+        width: 60px;
+        height: 90px;
+    }
+
+    .card-pile {
+        width: 60px;
+        height: 90px;
+    }
+
+    #table-area {
+        gap: 15px;
+        flex-wrap: wrap; /* Memungkinkan item pindah ke baris baru jika tidak muat */
+    }
+    
+    #game-info {
+        /* Pastikan info game berada di tengah meskipun item lain pindah baris */
+        width: 100%; 
+        order: 3; /* Pindahkan ke bagian bawah area meja */
+        margin-top: 10px;
+    }
+
+    #uno-button {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    .overlay-content {
+        padding: 20px;
+        width: 80%;
+    }
+}
