@@ -1,0 +1,22 @@
+/* style.css - minimal */
+body { font-family: Arial, sans-serif; background:#f7f7f7; margin:0; padding:20px; color:#222; }
+.container { max-width:1000px; margin:0 auto; background:#fff; padding:18px; box-shadow:0 2px 6px rgba(0,0,0,0.08); border-radius:6px; }
+.topnav { margin-bottom:12px; }
+.topnav a { margin-right:8px; text-decoration:none; color:#2a6ebb; }
+h2 { margin-top:0; }
+.table { width:100%; border-collapse:collapse; margin-top:10px; }
+.table th, .table td { border:1px solid #eee; padding:8px; text-align:left; }
+.table th { background:#fafafa; }
+.alert { padding:8px; border-radius:4px; margin-bottom:10px; }
+.alert.error { background:#ffe6e6; color:#8b0000; border:1px solid #f5c2c2; }
+.alert.success { background:#e6ffed; color:#1a7a2f; border:1px solid #bde6c3; }
+.card-row { display:flex; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
+.card { flex:1; min-width:180px; background:#fafafa; padding:12px; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,0.03); }
+.big { font-size:28px; font-weight:700; margin:6px 0; }
+input[type="text"], input[type="password"], input[type="date"], textarea, select { width:100%; padding:8px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; }
+button { background:#2a6ebb; color:#fff; padding:8px 12px; border:none; border-radius:4px; cursor:pointer; }
+button:hover { opacity:0.95; }
+a { color:#2a6ebb; }
+@media (max-width:600px) {
+  .card-row { flex-direction:column; }
+}
