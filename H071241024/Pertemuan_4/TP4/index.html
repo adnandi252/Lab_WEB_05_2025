@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNO Arena</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* == DESAIN BARU == */
+      body {
+        background-color: #0a3d24; /* Latar belakang hijau tua seperti meja kartu */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+
+      .card-container {
+        perspective: 1000px;
+      }
+
+      .card {
+        width: 100px;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        border: 2px solid #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        margin-right: -30px; /* Overlap kartu agar lebih rapat */
+      }
+
+      /* Efek hover baru untuk kartu pemain */
+      .card-player:hover {
+        transform: translateY(-25px) scale(1.1);
+        z-index: 100;
+        cursor: pointer;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .game-board {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Tombol dengan desain baru */
+      .btn-primary {
+        background-color: #f59e0b; /* Warna amber */
+        color: #422006;
+        font-weight: bold;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px; /* Pill shape */
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-primary:hover {
+        background-color: #fbbf24;
+      }
+
+      /* Desain baru untuk modal */
+      .modal-content {
+        background: #1f2937;
+        border: 2px solid #f59e0b;
+      }
+
+      /* Menyembunyikan elemen dengan lebih baik */
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="text-white flex flex-col min-h-screen">
+    <div class="flex-grow flex flex-col items-center justify-between p-4">
+      <div class="w-full max-w-5xl flex items-center justify-between mb-4">
+        <h1 class="text-4xl font-bold text-yellow-300">UNO Arena</h1>
+        <div class="text-lg text-right">
+          <div id="player-balance-display" class="font-semibold">
+            Saldo: $5000
+          </div>
+          <div class="text-yellow-400">
+            Taruhan: $<span id="current-bet-display">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full max-w-5xl game-board">
+        <div class="mb-4">
+          <h2 class="text-xl font-semibold mb-2 text-center">
+            Lawan (<span id="bot-card-count">0</span> kartu)
+          </h2>
+          <div
+            id="bot-hand"
+            class="flex justify-center card-container h-40 items-center"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-center space-x-8 my-6">
+          <div
+            id="deck"
+            class="card cursor-pointer"
+            style="background-image: url('kartu/card_back.png')"
+          ></div>
+          <div id="discard-pile" class="card"></div>
+          <div class="uno-button-container hidden">
+            <div class="call-uno-container hidden">
+  <button
+    id="call-uno-button"
+    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-2xl"
+  >
+    Call UNO
+  </button>
+</div>
+
+            <button
+              id="uno-button"
+              class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-2xl animate-pulse"
+            >
+              UNO!
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h2 class="text-xl font-semibold mb-2 text-center">
+            Tangan Anda (<span id="player-card-count">0</span> kartu)
+          </h2>
+          <div
+            id="player-hand"
+            class="flex justify-center card-container h-40 items-center"
+          ></div>
+        </div>
+      </div>
+
+      <div class="w-full max-w-5xl mt-4 text-center">
+        <p id="game-status" class="text-2xl font-semibold text-yellow-300 h-8">
+          Pasang taruhan untuk memulai.
+        </p>
+        <div
+          id="betting-area"
+          class="flex items-center justify-center space-x-3 mt-4"
+        >
+          <input
+            type="number"
+            id="bet-input"
+            placeholder="Min 100"
+            class="bg-gray-800 border-2 border-gray-600 focus:border-yellow-400 focus:outline-none text-white p-2 rounded-full w-32 text-center"
+            min="100"
+          />
+          <button id="place-bet-button" class="btn-primary">
+            Pasang Taruhan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="wild-colors"
+      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+    >
+      <div class="bg-gray-800 p-6 rounded-lg flex space-x-4">
+        <div
+          class="w-16 h-16 rounded-full bg-red-600 cursor-pointer transform hover:scale-110 transition-transform"
+          data-color="red"
+        ></div>
+        <div
+          class="w-16 h-16 rounded-full bg-blue-600 cursor-pointer transform hover:scale-110 transition-transform"
+          data-color="blue"
+        ></div>
+        <div
+          class="w-16 h-16 rounded-full bg-green-600 cursor-pointer transform hover:scale-110 transition-transform"
+          data-color="green"
+        ></div>
+        <div
+          class="w-16 h-16 rounded-full bg-yellow-400 cursor-pointer transform hover:scale-110 transition-transform"
+          data-color="yellow"
+        ></div>
+      </div>
+    </div>
+
+    <div
+      id="game-over-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+    >
+      <div
+        class="modal-content p-8 rounded-lg text-center shadow-lg max-w-sm"
+      >
+        <h2 id="game-over-title" class="text-3xl font-bold mb-4">Game Over</h2>
+        <p id="game-over-message" class="text-lg mb-6">
+          Saldo Anda habis. Mari coba lagi!
+        </p>
+        <button id="restart-button" class="btn-primary">Mulai Ulang</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
