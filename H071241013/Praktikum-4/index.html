@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UNO Betting Game 💰</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="game-container">
+        <div id="info-bar">
+            <div id="player-status">
+                <p>💰 Saldo: $<span id="saldo-display">5000</span></p>
+                <p>🎯 Taruhan: $<span id="bet-display">0</span></p>
+            </div>
+            <div id="game-status">
+                <p id="turn-indicator">Giliran: Pemain</p>
+                <button id="uno-btn" disabled>UNO!</button>
+            </div>
+        </div>
+
+        <div id="bot-hand" class="hand-area">
+            <!-- di-update oleh JS -->
+        </div>
+
+        <div id="play-area">
+            <div id="deck-area">
+                <div id="deck">
+                    <img src="assets/card_back.png" alt="Deck" class="card-image" id="draw-card-btn">
+                </div>
+                <div id="discard-pile">
+                    <img src="assets/card_back.png" alt="Top Card" class="card-image" id="top-card">
+                </div>
+            </div>
+        </div>
+
+        <div id="message-area">
+            <p id="game-message">Tekan "Mulai Ronde" untuk bermain!</p>
+            <div id="color-picker" class="hidden">
+                <p>Pilih Warna Baru:</p>
+                <button class="color-btn" data-color="red" style="background-color: red;"></button>
+                <button class="color-btn" data-color="blue" style="background-color: blue;"></button>
+                <button class="color-btn" data-color="green" style="background-color: green;"></button>
+                <button class="color-btn" data-color="yellow" style="background-color: yellow;"></button>
+            </div>
+            <button id="skip-draw-btn" class="hidden">Lewati Giliran</button>
+        </div>
+
+        <div id="player-hand" class="hand-area">
+            <!-- di-update oleh JS -->
+        </div>
+
+        <div id="bet-modal" class="modal">
+            <div class="modal-content">
+                <h2>Mulai Ronde Baru</h2>
+                <label for="bet-input">Masukkan Taruhan (Min $100, Max Saldo):</label>
+                <input type="number" id="bet-input" value="100" min="100" max="5000">
+                <button id="start-round-btn">Mulai Ronde</button>
+            </div>
+        </div>
+
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="game-over-message">Game Over!</h2>
+                <p>Saldo Anda habis/minus.</p>
+                <button id="restart-game-btn">Mulai Ulang ($5000)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

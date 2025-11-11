@@ -1,0 +1,289 @@
+/* Styling Global */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e3f0ff 0%, #f9f9f9 100%);
+    color: #222;
+    transition: background 0.3s;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Header & Navigasi */
+header {
+    background: linear-gradient(90deg, #4e8cff 60%, #6ed6ff 100%);
+    color: #fff;
+    padding-top: -10px;
+    min-height: 70px;
+    border-bottom: #a3c9ff 3px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(78,140,255,0.08);
+}
+
+header h1 {
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 20px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav li {
+    display: inline;
+    padding: 0 18px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+header a:hover {
+    color: #19a11b;
+    text-shadow: 0 2px 8px rgba(0, 255, 119, 0.2);
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00ffaa;
+    transition: width .3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+/* Seksional Umum */
+section {
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(78,140,255,0.07);
+    transition: box-shadow 0.2s;
+}
+
+section:hover {
+    box-shadow: 0 8px 32px rgba(78,140,255,0.13);
+}
+
+/* Hero Section */
+#hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(120deg, #6ed6ff 0%, #4e8cff 100%);
+    color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(78,140,255,0.09);
+}
+
+#hero-section img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(78,140,255,0.15);
+    margin-bottom: 18px;
+    transition: transform 0.3s;
+}
+
+#hero-section img:hover {
+    transform: scale(1.07) rotate(-2deg);
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f7fbff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(78,140,255,0.06);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e3f0ff;
+}
+
+th {
+    background: #e3f0ff;
+    color: #4e8cff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #f0f8ff;
+}
+
+/* Formulir Kontak */
+#contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact-form label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #4e8cff;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 10px;
+    border: 1px solid #b3d1ff;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f7fbff;
+    transition: border 0.2s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border: 1.5px solid #4e8cff;
+    outline: none;
+}
+
+/* Layout for radio and checkbox groups: keep input and label together */
+#contact-form .radio-group,
+#contact-form .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px; /* vertical gap, horizontal gap */
+    align-items: center;
+    margin-top: 18px;
+}
+
+/* Make each input+label behave like a single inline unit without changing HTML */
+#contact-form .radio-group input[type="radio"],
+#contact-form .radio-group label {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Keep inputs from stretching (they inherit width:100% from generic selector) */
+#contact-form input[type="radio"],
+#contact-form input[type="checkbox"] {
+    width: auto !important;
+    margin: 0 8px 0 0;
+    flex: 0 0 auto;
+}
+
+/* Make label clickable and visually close to its control */
+#contact-form .radio-group label,
+#contact-form .checkbox-group label {
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+/* Small screens: stack pairs vertically */
+@media (max-width: 480px) {
+    #contact-form .radio-group,
+    #contact-form .checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+
+
+
+#contact-form button {
+    background: linear-gradient(90deg, #4e8cff 60%, #6ed6ff 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(78,140,255,0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+#contact-form button:hover {
+    background: linear-gradient(90deg, #6ed6ff 60%, #4e8cff 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #4e8cff 60%, #6ed6ff 100%);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 -2px 8px rgba(78,140,255,0.08);
+    font-size: 1rem;
+}
+
+footer a {
+    color: #ffe066;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .container {
+        padding: 0 8px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 12px;
+        min-height: 60px;
+    }
+    header h1 {
+        font-size: 1.3rem;
+        padding: 0 8px;
+    }
+    section {
+        padding: 16px 8px;
+    }
+    #hero-section {
+        padding: 32px 8px;
+    }
+}
+
+/* Tambahkan styling tambahan sesuai kebutuhan Anda */

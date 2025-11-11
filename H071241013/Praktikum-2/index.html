@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TravelNow — Temukan Petualangan Baru</title>
+  <meta name="description" content="TravelNow — platform pemesanan liburan mudah, murah, dan tak terlupakan." />
+  <!-- Tailwind Play CDN (utility-first) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Optional: improve font rendering -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Allow usage of the Google font via utility classes (safe minimal inline) */
+    :root { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+  </style>
+</head>
+<body class="antialiased text-slate-800 bg-gradient-to-tr from-amber-200 via-blue-300 to-emerald-200">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-very-blur-md shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-md bg-gradient-to-br from-sky-500 to-emerald-400 flex items-center justify-center text-white font-bold text-base">TN</div>
+          <div>
+            <div class="text-base font-extrabold tracking-tight">TravelNow</div>
+            <div class="text-[10px] text-slate-500 -mt-0.5">Liburan mudah & tak terlupakan</div>
+          </div>
+        </a>
+
+        <div class="flex-1"></div>
+  <nav class="hidden md:flex items-center gap-6 text-xs ml-32">
+          <a href="#hero" class="text-slate-500 hover:text-sky-400">Beranda</a>
+          <a href="#destinasi" class="text-slate-500 hover:text-sky-400">Destinasi</a>
+          <a href="#paket" class="text-slate-500 hover:text-sky-400">Paket</a>
+          <a href="#testimoni" class="text-slate-500 hover:text-sky-400">Testimoni</a>
+          <a href="#kontak" class="text-slate-500 hover:text-sky-400">Kontak</a>
+        </nav>
+  <div class="hidden md:flex items-center ml-6">
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="navToggle" aria-label="Buka menu" class="p-2 rounded-md hover:bg-slate-100">
+            <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+            <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <nav id="mobileMenu" class="md:hidden hidden border-t bg-white/90">
+      <div class="px-4 py-4 space-y-2 text-sm">
+        <a href="#hero" class="block px-3 py-1.5 rounded-md hover:bg-slate-100">Beranda</a>
+        <a href="#destinasi" class="block px-3 py-1.5 rounded-md hover:bg-slate-100">Destinasi</a>
+        <a href="#paket" class="block px-3 py-1.5 rounded-md hover:bg-slate-100">Paket</a>
+        <a href="#testimoni" class="block px-3 py-1.5 rounded-md hover:bg-slate-100">Testimoni</a>
+        <a href="#kontak" class="block px-3 py-1.5 rounded-md hover:bg-slate-100">Kontak</a>
+  <a href="#pesan" class="block px-5 py-2 rounded-lg bg-sky-600 text-white text-sm font-semibold text-center shadow-md hover:bg-sky-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400">Pesan Sekarang</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="hero" class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-20">
+          <!-- Left -->
+          <div class="space-y-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+              Temukan <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-amber-400">Petualangan Baru</span> Bersama TravelNow
+            </h1>
+            <p class="text-lg text-slate-600 max-w-xl">
+              Liburan mudah, hemat, dan penuh momen. Pilih destinasi impianmu, atur jadwal, dan biarkan kami yang mengurus sisanya.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <a href="#paket" class="inline-flex items-center px-5 py-3 rounded-md bg-amber-400 text-slate-900 font-semibold shadow hover:scale-105 transform transition">Pesan Liburanmu Sekarang</a>
+              <a href="#destinasi" class="inline-flex items-center px-5 py-3 rounded-md border border-slate-200 text-slate-700 hover:bg-slate-50">Lihat Destinasi</a>
+            </div>
+
+            <div class="mt-4 flex gap-4 items-center text-sm text-slate-500">
+              <div class="flex items-center gap-2">
+                <svg class="h-5 w-5 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 11h18M5 15h14"/></svg>
+                <span>Ribuan destinasi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.5c0 5.25-4.03 9.5-9 9.5S3 17.75 3 12.5"/></svg>
+                <span>Dukungan 24/7</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: hero image -->
+          <div class="relative">
+            <div class="rounded-xl overflow-hidden shadow-xl ring-1 ring-slate-100">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=bb5a1d2c0f8862f7c8d4b83e9b7d1a7f" alt="Pantai pemandangan" class="w-full h-72 sm:h-96 object-cover">
+            </div>
+
+            <!-- Small promo card overlay -->
+            <div class="absolute left-4 bottom-6 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-md border border-slate-100 w-56">
+              <div class="text-xs text-slate-500">Promo</div>
+              <div class="text-sm font-semibold">Diskon Musim Panas <span class="text-amber-500">50% OFF</span></div>
+              <div class="text-xs text-slate-600 mt-1">Hanya sampai 30 Sep 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-12">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold">Mengapa TravelNow?</h2>
+        <p class="mt-3 text-slate-600">TravelNow membantu kamu merencanakan perjalanan dari awal sampai akhir — rekomendasi destinasi, paket hemat, dan dukungan 24/7. Semua bisa diakses dalam beberapa klik.</p>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="p-5 bg-white rounded-xl shadow-sm border">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-sky-50 text-sky-600 mb-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7l6 6-6 6"/></svg>
+            </div>
+            <h3 class="font-semibold">Cari Destinasi</h3>
+            <p class="mt-2 text-sm text-slate-500">Ribuan tempat dari pantai tersembunyi sampai kota ikonik.</p>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl shadow-sm border">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-amber-50 text-amber-500 mb-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v8M8 12h8"/></svg>
+            </div>
+            <h3 class="font-semibold">Paket Hemat</h3>
+            <p class="mt-2 text-sm text-slate-500">Paket disusun supaya cocok dengan budgetmu.</p>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl shadow-sm border">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-emerald-50 text-emerald-600 mb-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 2l2 7h7l-5.5 4 2 7L12 16l-7.5 4 2-7L1 9h7z"/></svg>
+            </div>
+            <h3 class="font-semibold">Dukungan 24/7</h3>
+            <p class="mt-2 text-sm text-slate-500">Tim kami siap membantu kapan saja selama perjalananmu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS (Grid system requirement) -->
+    <section id="destinasi" class="py-12 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold">Destinasi Populer</h2>
+          <a href="#destinasi" class="text-sky-600 hover:underline">Lihat semua</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Paris" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold">Paris, Perancis</h3>
+              <p class="mt-1 text-sm text-slate-500">Romantis, seni, dan kafe yang menawan.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-sm font-medium text-sky-600">Mulai dari Rp 6.500.000</div>
+                <a href="#paket" class="text-sm text-slate-700 hover:text-sky-600">Pilih Paket →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Bali" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold">Bali, Indonesia</h3>
+              <p class="mt-1 text-sm text-slate-500">Pantai, budaya, dan kuliner yang kaya.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-sm font-medium text-sky-600">Mulai dari Rp 1.200.000</div>
+                <a href="#paket" class="text-sm text-slate-700 hover:text-sky-600">Pilih Paket →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1200&auto=format&fit=crop" alt="Tokyo" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold">Tokyo, Jepang</h3>
+              <p class="mt-1 text-sm text-slate-500">Modern, ramen, dan budaya pop.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-sm font-medium text-sky-600">Mulai dari Rp 7.800.000</div>
+                <a href="#paket" class="text-sm text-slate-700 hover:text-sky-600">Pilih Paket →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="New York" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold">New York, USA</h3>
+              <p class="mt-1 text-sm text-slate-500">Kota yang tak pernah tidur.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-sm font-medium text-sky-600">Mulai dari Rp 8.500.000</div>
+                <a href="#paket" class="text-sm text-slate-700 hover:text-sky-600">Pilih Paket →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="paket" class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Judul Section -->
+        <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold">Paket Pilihan</h2>
+        <p class="text-sm text-slate-500">
+            Pilih berdasarkan preferensi & budget
+        </p>
+        </div>
+
+        <!-- Grid Paket -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1: Budget Explorer -->
+        <article class="p-5 rounded-xl border shadow-sm">
+            <!-- Header Card -->
+            <div class="flex items-center justify-between">
+            <div>
+                <h3 class="font-semibold">Budget Explorer</h3>
+                <p class="text-sm text-slate-500">
+                Untuk backpacker & budget traveler.
+                </p>
+            <d class="text-lg font-bold text-sky-600">Rp 900k+</d>
+
+            <!-- Fitur -->
+            <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔ Penginapan 2 malam</li>
+            <li>✔ Transfer bandara</li>
+            <li>✔ Itinerary santai</li>
+            </ul>
+
+            <!-- Tombol -->
+            <div class="mt-4">
+            <a href="#pesan" 
+              class="inline-block px-3 py-1.5 rounded-md bg-amber-400 
+                text-slate-900 text-xs font-semibold 
+                transform transition hover:scale-105">
+                Pesan Sekarang
+            </a>
+            </div>
+        </article>
+
+        <!-- Card 2: Couple Escape -->
+        <article class="p-5 rounded-xl border shadow-sm">
+            <!-- Header Card -->
+            <div class="flex items-center justify-between">
+            <div>
+                <h3 class="font-semibold">Couple Escape</h3>
+                <p class="text-sm text-slate-500">
+                Paket romantis & private.
+                </p>
+            <div class="text-lg font-bold text-sky-600">Rp 3.200k+</div>
+
+            <!-- Fitur -->
+            <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔ Dinner romantis</li>
+            <li>✔ Hotel bintang 4</li>
+            <li>✔ Tour pribadi</li>
+            </ul>
+
+            <!-- Tombol -->
+            <div class="mt-4">
+            <a href="#pesan" 
+    class="inline-block px-3 py-1.5 rounded-md bg-amber-400 
+      text-slate-900 text-xs font-semibold 
+      transform transition hover:scale-105">
+                Pesan Sekarang
+            </a>
+            </div>
+        </article>
+
+        <!-- Card 3: Adventure Pack -->
+        <article class="p-5 rounded-xl border shadow-sm">
+            <!-- Header Card -->
+            <div class="flex items-center justify-between">
+            <div>
+                <h3 class="font-semibold">Adventure Pack</h3>
+                <p class="text-sm text-slate-500">
+                Untuk pencari adrenalin & petualangan.
+                </p>
+            <div class="text-lg font-bold text-sky-600">Rp 2.400k+</div>
+
+            <!-- Fitur -->
+            <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔ Aktivitas outdoor</li>
+            <li>✔ Guide profesional</li>
+            <li>✔ Perlengkapan opsional</li>
+            </ul>
+
+            <!-- Tombol -->
+            <div class="mt-4">
+            <a href="#pesan" 
+    class="inline-block px-3 py-1.5 rounded-md bg-amber-400 
+      text-slate-900 text-xs font-semibold 
+      transform transition hover:scale-105">
+                Pesan Sekarang
+            </a>
+            </div>
+        </article>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimoni" class="py-12 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold">Apa Kata Traveler</h2>
+        <p class="text-slate-600 mt-2">Pengalaman nyata dari traveler yang sudah mencoba TravelNow.</p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <figure class="bg-white p-5 rounded-xl shadow-sm text-left">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="profil" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <div class="font-semibold">Kleri</div>
+                <div class="text-xs text-slate-500">Toraja</div>
+              </div>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-600">"Paketnya pas untuk kantong mahasiswa."</blockquote>
+          </figure>
+
+          <figure class="bg-white p-5 rounded-xl shadow-sm text-left">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="profil" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <div class="font-semibold">Zalfa</div>
+                <div class="text-xs text-slate-500">Pare-pare</div>
+              </div>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-600">"Aduh mending aku pesan grab aja"</blockquote>
+          </figure>
+
+          <figure class="bg-white p-5 rounded-xl shadow-sm text-left">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="profil" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <div class="font-semibold">Tika</div>
+                <div class="text-xs text-slate-500">Kendari</div>
+              </div>
+            </div>
+            <blockquote class="mt-3 text-sm text-slate-600">"Mau liburan tapi budget mepet? Dirumah aja Solusinya!"</blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIPTION / CONTACT FORM -->
+    <section id="kontak" class="py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-2xl font-bold">Dapatkan Penawaran Spesial</h2>
+            <p class="text-slate-600 mt-2">Daftar untuk menerima diskon & paket eksklusif langsung ke inboxmu.</p>
+
+            <dl class="mt-6 space-y-3 text-sm text-slate-600">
+              <div class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-sky-500 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3"/></svg>
+                <div><strong>Update cepat</strong> tentang promo & paket baru.</div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-amber-400 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 11h18M5 15h14"/></svg>
+                <div><strong>Kurikulum perjalanan</strong> & tips packing.</div>
+              </div>
+            </dl>
+          </div>
+
+          <div>
+            <form id="subscribeForm" class="bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-xl shadow-sm border">
+              <label class="block text-sm font-medium text-slate-700">Nama</label>
+              <input type="text" name="name" placeholder="Nama lengkap" class="mt-2 w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-sky-300" required>
+
+              <label class="block text-sm font-medium text-slate-700 mt-4">Email</label>
+              <input type="email" name="email" placeholder="you@example.com" class="mt-2 w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-sky-300" required>
+
+              <div class="mt-4">
+                <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 rounded-md bg-sky-600 text-white font-semibold hover:bg-sky-700">Berlangganan Sekarang</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-md bg-gradient-to-br from-sky-500 to-emerald-400 flex items-center justify-center text-white font-bold">TN</div>
+            <div>
+              <div class="font-bold">TravelNow</div>
+              <div class="text-xs text-slate-300">© 2025 TravelNow. All rights reserved.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-8">
+          <div>
+            <h4 class="text-sm font-semibold text-slate-200">Produk</h4>
+            <ul class="mt-2 text-sm text-slate-400 space-y-1">
+              <li><a href="#paket" class="hover:text-white">Paket</a></li>
+              <li><a href="#destinasi" class="hover:text-white">Destinasi</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold text-slate-200">Perusahaan</h4>
+            <ul class="mt-2 text-sm text-slate-400 space-y-1">
+              <li><a href="#about" class="hover:text-white">Tentang</a></li>
+              <li><a href="#kontak" class="hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold text-slate-200">Ikuti Kami</h4>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="https://www.instagram.com/" aria-label="Instagram" class="p-2 rounded-full bg-white/5 hover:bg-white/10">
+                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 8.5zM18.5 6a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://www.youtube.com/" aria-label="YouTube" class="p-2 rounded-full bg-white/5 hover:bg-white/10">
+                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zM21.8 8.001a3 3 0 00-2.116-2.12C18.292 5.375 12 5.375 12 5.375s-6.291 0-7.684.506A3 3 0 002.2 8.001 31.94 31.94 0 002 12c0 1.44.18 2.952.516 3.999a3 3 0 002.116 2.12C5.708 18.625 12 18.625 12 18.625s6.291 0 7.684-.506a3 3 0 002.116-2.12A31.94 31.94 0 0022 12c0-1.44-.18-2.952-.2-3.999z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/" aria-label="TikTok" class="p-2 rounded-full bg-white/5 hover:bg-white/10">
+                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2v7a3 3 0 01-3 3 3 3 0 100 6 3 3 0 003-3v-1.5a6 6 0 006-6V6h2v3a8 8 0 01-8 8v1.5a3 3 0 11-3-3V9h2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS for mobile toggle and form demo -->
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const iconOpen = document.getElementById('iconOpen');
+      const iconClose = document.getElementById('iconClose');
+
+      navToggle.addEventListener('click', () => {
+        const opened = !mobileMenu.classList.contains('hidden');
+        if (opened) {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        }
+      });
+
+      // Demo: prevent real submission and show a small toast
+      const form = document.getElementById('subscribeForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Simple confirmation
+        alert('Terima kasih! (Ini hanya demo — form tidak mengirim data.)');
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
